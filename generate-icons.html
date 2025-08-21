@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+    
+    <script>
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // 背景
+            ctx.fillStyle = '#0F1418';
+            ctx.fillRect(0, 0, size, size);
+            
+            // 边框
+            ctx.strokeStyle = '#1B232A';
+            ctx.lineWidth = size / 32;
+            ctx.strokeRect(size/32, size/32, size-size/16, size-size/16);
+            
+            // 道路线条
+            ctx.strokeStyle = '#00D0A8';
+            ctx.lineWidth = size / 21;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(size * 0.1875, size * 0.5);
+            ctx.quadraticCurveTo(size * 0.5, size * 0.3125, size * 0.8125, size * 0.5);
+            ctx.stroke();
+            
+            // 次要道路
+            ctx.strokeStyle = '#8AA0A8';
+            ctx.lineWidth = size / 32;
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(size * 0.1875, size * 0.5625);
+            ctx.quadraticCurveTo(size * 0.5, size * 0.6875, size * 0.8125, size * 0.5625);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+            
+            // 车辆
+            ctx.fillStyle = '#E6EDF3';
+            ctx.fillRect(size * 0.4375, size * 0.4375, size * 0.125, size * 0.0625);
+            ctx.fillStyle = '#0F1418';
+            ctx.beginPath();
+            ctx.arc(size * 0.46875, size * 0.5, size * 0.023, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(size * 0.53125, size * 0.5, size * 0.023, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // 装饰点
+            ctx.fillStyle = '#00D0A8';
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.arc(size * 0.3125, size * 0.3125, size * 0.016, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(size * 0.6875, size * 0.6875, size * 0.016, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        drawIcon('canvas192', 192);
+        drawIcon('canvas512', 512);
+        
+        // 下载功能（需要手动保存）
+        console.log('图标已生成，请右键保存图片');
+    </script>
+</body>
+</html>

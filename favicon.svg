@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 背景圆形 -->
+  <circle cx="32" cy="32" r="30" fill="#0F1418" stroke="#1B232A" stroke-width="2"/>
+  
+  <!-- 道路线条 -->
+  <path d="M12 32 Q32 20 52 32" stroke="#00D0A8" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M12 36 Q32 44 52 36" stroke="#8AA0A8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- 车辆图标 -->
+  <rect x="28" y="28" width="8" height="4" rx="2" fill="#E6EDF3"/>
+  <circle cx="30" cy="32" r="1.5" fill="#0F1418"/>
+  <circle cx="34" cy="32" r="1.5" fill="#0F1418"/>
+  
+  <!-- 装饰性元素 -->
+  <circle cx="20" cy="20" r="1" fill="#00D0A8" opacity="0.8"/>
+  <circle cx="44" cy="44" r="1" fill="#00D0A8" opacity="0.8"/>
+</svg>

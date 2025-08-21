@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0F1418">
+    <title>Slow Roads – Unofficial Fan Site</title>
+    <meta name="description" content="Endless driving zen. Drive to unwind, anytime.">
+    <link rel="manifest" href="./manifest.webmanifest">
+         <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+     <link rel="apple-touch-icon" href="./icons/icon-192.png">
+    <link rel="stylesheet" href="./assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#">Slow Roads</a>
+        <div class="nav-links">
+          <a href="#play" class="nav-link">Play</a>
+          <a href="#guide" class="nav-link">Guide</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero / Game Frame -->
+      <section id="play" class="hero">
+        <div class="hero-copy">
+          <h1 class="hero-title">Slow Roads</h1>
+          <p class="hero-sub">Drive to unwind, anytime.</p>
+          <div class="hero-ctas" style="display:none">
+            <button id="btnPlay" class="btn btn-primary">Play Now</button>
+          </div>
+          <p class="helper">This is an unofficial fan site. You will play on the official game.</p>
+        </div>
+        <div class="game-frame" aria-label="Game preview">
+          <img class="frame-preview" id="framePreview" src="./icons/icon1.png" alt="Slow Roads preview" onerror="this.style.display='none'">
+          <div class="frame-start" id="frameStart">
+            <div class="start-card">
+              <h3>Ready to drive?</h3>
+              <p>Click to load the official game in place.</p>
+              <button id="btnStartInFrame" class="btn btn-primary">Start Game</button>
+            </div>
+          </div>
+          <div class="skeleton" id="gameSkeleton">
+            <div class="skeleton-bar"></div>
+            <div class="skeleton-bar"></div>
+            <div class="skeleton-bar"></div>
+          </div>
+          <button id="btnFullscreen" class="frame-action" aria-label="Enter fullscreen" title="Fullscreen" disabled>⤢</button>
+          <div class="frame-overlay" id="frameOverlay">
+            <div class="overlay-card">
+              <p>The game cannot be embedded here. Please open it in a new tab.</p>
+              <div class="overlay-actions">
+                <a id="overlayOpen" class="btn btn-primary" href="https://slowroads.io" target="_blank" rel="noopener">Open in New Tab</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Highlights -->
+      <section class="highlights">
+        <div class="card">
+          <h3>Browser‑native</h3>
+          <p>No downloads. It runs right in your browser.</p>
+        </div>
+        <div class="card">
+          <h3>Relaxing by design</h3>
+          <p>No timers, no pressure—just the road ahead.</p>
+        </div>
+        <div class="card">
+          <h3>Works on most devices</h3>
+          <p>Smooth on modern desktops and mobile browsers.</p>
+        </div>
+      </section>
+
+      <!-- Guide -->
+      <section id="guide" class="guide">
+        <h2>Quick Start</h2>
+        <div class="grid two">
+          <div>
+            <h3>Controls</h3>
+            <ul>
+              <li>Drive: WASD or Arrow Keys</li>
+              <li>Boost: Shift</li>
+              <li>Camera: Mouse drag, C to switch</li>
+              <li>Weather & Time: Q / E</li>
+              <li>Recovery: R to road, H headlights, B handbrake, P pause</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Settings tips</h3>
+            <ul>
+              <li>Visual Quality: Start at Medium; raise if FPS is stable.</li>
+              <li>Camera & FOV: Lower for speed, higher for scenery.</li>
+              <li>Steering Sensitivity: Tune for keyboard vs. controller.</li>
+              <li>Audio: Lower engine, higher ambience for a calmer ride.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Game introduction -->
+      <section class="intro">
+        <div class="intro-card">
+          <p><strong>Slow Roads</strong> is a serene, open‑ended driving experience. There are no ads, no missions, and no finish line—just the scenery and the road.</p>
+          <p>Set the weather and time to match your mood, put on some music, and simply <strong>drive</strong>.</p>
+        </div>
+      </section>
+
+      <!-- Network help -->
+      <section id="faq" class="faq">
+        <h2>School/work network help</h2>
+        <ul>
+          <li>If it fails to load here, we’ll open the official site in a new tab automatically.</li>
+          <li>Try another modern browser and disable heavy extensions.</li>
+          <li>Some networks block browser games; mobile data or home Wi‑Fi may be required.</li>
+        </ul>
+      </section>
+
+      <!-- Similar experiences -->
+      <section class="similar">
+        <h2>Similar experiences</h2>
+        <div class="grid three">
+          <a class="card link-card" href="https://store.steampowered.com/app/550320/Art_of_Rally/" target="_blank" rel="noopener">Art of Rally</a>
+          <a class="card link-card" href="https://store.steampowered.com/app/522210/Lonely_Mountains_Downhill/" target="_blank" rel="noopener">Lonely Mountains: Downhill</a>
+          <a class="card link-card" href="https://driveandlisten.herokuapp.com/" target="_blank" rel="noopener">Drive & Listen</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Unofficial fan site. All game rights belong to Topograph Interactive. Play the official game at <a href="https://slowroads.io" target="_blank" rel="noopener">slowroads.io</a>.</p>
+      <p><a href="#">Privacy</a> • <a href="#">Terms</a></p>
+    </footer>
+
+    <script src="./assets/app.js"></script>
+  </body>
+  <!-- Note: add proper PNG icons later for best PWA install experience. -->
+  <!-- Fallback favicon (vector) -->
+  <svg xmlns="http://www.w3.org/2000/svg" id="favicon-template" viewBox="0 0 64 64" style="display:none"><path fill="#00D0A8" d="M8 32c10-12 22-12 32 0s22 12 16 0-18-24-32-16S-2 44 8 32z"/></svg>
+  <!-- The linked favicon.svg should be created from brand later. -->
+  
+</html>
+
+
