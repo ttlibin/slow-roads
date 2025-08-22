@@ -9,6 +9,7 @@
   const overlayOpen = document.getElementById('overlayOpen');
   const frameStart = document.getElementById('frameStart');
   const btnStartInFrame = document.getElementById('btnStartInFrame');
+  const btnInstallPWA = document.getElementById('btnInstallPWA');
   const framePreview = document.getElementById('framePreview');
 
   // Force 4:3 aspect ratio for the game frame
@@ -89,6 +90,14 @@
     const started = tryEmbedInFrame();
     if (!started && overlay) overlay.style.display = 'flex';
   });
+  
+  // Show install button if PWA is available
+  if (deferredPrompt && btnInstallPWA) {
+    btnInstallPWA.style.display = 'inline-flex';
+    btnInstallPWA.addEventListener('click', ()=>{
+      showInstallPrompt();
+    });
+  }
 
   // Fullscreen toggling for the container (not controlling the game itself)
   btnFullscreen?.addEventListener('click', ()=>{
@@ -100,13 +109,62 @@
     }
   });
 
-  // PWA install prompt (soft prompt)
+  // PWA install prompt and management
   let deferredPrompt;
+  let isPWAInstalled = window.matchMedia('(display-mode: standalone)').matches;
+  
   window.addEventListener('beforeinstallprompt', (e)=>{
     e.preventDefault();
     deferredPrompt = e;
-    console.log('PWA install available');
+    showInstallPrompt();
   });
+  
+  function showInstallPrompt() {
+    if (isPWAInstalled) return;
+    
+    // Create install prompt UI
+    const prompt = document.createElement('div');
+    prompt.className = 'install-prompt';
+    prompt.innerHTML = `
+      <div class="install-card">
+        <h4>Install Slow Roads</h4>
+        <p>Get the best experience with our app</p>
+        <div class="install-actions">
+          <button id="installBtn" class="btn btn-primary">Install</button>
+          <button id="dismissBtn" class="btn btn-ghost">Not now</button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(prompt);
+    
+    // Install button handler
+    document.getElementById('installBtn')?.addEventListener('click', async ()=>{
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('PWA installed');
+          isPWAInstalled = true;
+        }
+        deferredPrompt = null;
+      }
+      prompt.remove();
+    });
+    
+    // Dismiss button handler
+    document.getElementById('dismissBtn')?.addEventListener('click', ()=>{
+      prompt.remove();
+    });
+  }
+  
+  // Check if running in PWA mode
+  if (isPWAInstalled) {
+    // If in PWA, redirect to game after a brief delay
+    setTimeout(() => {
+      window.location.href = PLAY_URL;
+    }, 2000);
+  }
 
 })();
 
