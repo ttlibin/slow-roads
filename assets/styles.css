@@ -46,8 +46,9 @@ main{max-width:1280px;margin:0 auto;padding:24px 16px}
 .frame-overlay .overlay-card{background:var(--surface);border:1px solid var(--divider);border-radius:12px;padding:16px;max-width:520px}
 .frame-overlay .overlay-card p{margin:0 0 12px;color:var(--text-dim)}
 .frame-overlay .overlay-actions{display:flex;gap:12px;justify-content:center}
-.frame-action{position:absolute;top:10px;right:10px;background:#0009;color:var(--text);border:1px solid var(--divider);border-radius:8px;padding:6px 8px;z-index:5}
+.frame-action{position:absolute;top:10px;right:10px;background:#0009;color:var(--text);border:1px solid var(--divider);border-radius:8px;padding:6px 8px;cursor:pointer;z-index:5}
 .frame-action:disabled{cursor:not-allowed;opacity:.75}
+.frame-action:not(:disabled):hover{background:#000c;border-color:var(--accent)}
 
 .skeleton{position:absolute;inset:0;height:100%;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;background-image:radial-gradient(ellipse at 25% 10%,rgba(255,255,255,.05),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.04),transparent 60%);z-index:2}
 .skeleton-bar{height:8px;background:#ffffff12;border-radius:4px}
