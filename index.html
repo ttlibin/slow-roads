@@ -47,13 +47,16 @@
         </div>
         <div class="game-frame" aria-label="Game preview">
           <img class="frame-preview" id="framePreview" src="./icons/icon1.png" alt="Slow Roads preview" onerror="this.style.display='none'">
-          <div class="frame-start" id="frameStart">
-            <div class="start-card">
-              <h3>Ready to drive?</h3>
-              <p>Click to load the official game in place.</p>
-              <button id="btnStartInFrame" class="btn btn-primary">Start Game</button>
-            </div>
-          </div>
+                     <div class="frame-start" id="frameStart">
+             <div class="start-card">
+               <h3>Ready to drive?</h3>
+               <p>Click to load the official game in place.</p>
+               <div class="start-actions">
+                 <button id="btnStartInFrame" class="btn btn-primary">Start Game</button>
+                 <button id="btnInstallPWA" class="btn btn-ghost" style="display:none">Install App</button>
+               </div>
+             </div>
+           </div>
           <div class="skeleton" id="gameSkeleton">
             <div class="skeleton-bar"></div>
             <div class="skeleton-bar"></div>
