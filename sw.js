@@ -3,6 +3,7 @@ const CACHE_NAME = 'sr-shell-v1';
 const SHELL_ASSETS = [
   '/',
   '/index.html',
+  '/pwa-start.html',
   '/assets/styles.css',
   '/assets/app.js',
   '/manifest.webmanifest',
