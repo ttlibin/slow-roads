@@ -11,6 +11,9 @@
   const btnStartInFrame = document.getElementById('btnStartInFrame');
   const btnInstallPWA = document.getElementById('btnInstallPWA');
   const framePreview = document.getElementById('framePreview');
+  
+  // PWA variables
+  let deferredPrompt;
 
   // Force 4:3 aspect ratio for the game frame
   if (gameContainer) {
@@ -57,6 +60,9 @@
         btnFullscreen.removeAttribute('disabled');
         btnFullscreen.setAttribute('aria-disabled','false');
         btnFullscreen.classList.add('enabled');
+        console.log('Fullscreen button enabled after game load');
+      } else {
+        console.log('Fullscreen button not found');
       }
     };
     iframe.addEventListener('load', onload, { once: true });
@@ -101,16 +107,25 @@
 
   // Fullscreen toggling for the container (not controlling the game itself)
   btnFullscreen?.addEventListener('click', ()=>{
-    if (!gameContainer) return;
+    console.log('Fullscreen button clicked');
+    if (!gameContainer) {
+      console.log('No game container found');
+      return;
+    }
     if (document.fullscreenElement) {
-      document.exitFullscreen().catch(()=>{});
+      console.log('Exiting fullscreen');
+      document.exitFullscreen().catch((err)=>{
+        console.error('Error exiting fullscreen:', err);
+      });
     } else {
-      gameContainer.requestFullscreen?.().catch(()=>{});
+      console.log('Entering fullscreen');
+      gameContainer.requestFullscreen?.().catch((err)=>{
+        console.error('Error entering fullscreen:', err);
+      });
     }
   });
 
   // PWA install prompt and management
-  let deferredPrompt;
   let isPWAInstalled = window.matchMedia('(display-mode: standalone)').matches;
   
   window.addEventListener('beforeinstallprompt', (e)=>{
